@@ -17,7 +17,6 @@ export default class Main extends Component {
   render () {
     return (
       <div className="container">
-        <HelloWorld greeting="Hi pogi!" />
         <TweetBox sendTweet={this.sendTweet} />
         <TweetList tweets={this.state.tweets} />
       </div>

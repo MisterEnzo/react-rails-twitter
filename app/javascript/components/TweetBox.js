@@ -14,9 +14,10 @@ export default class TweetBox extends React.Component {
   render () {
     return (
       <div>
+        <h2>Tweet!</h2>
         <form onSubmit={this.sendTweet}>
           <div className="form-group">
-            <label>Whats up?</label>
+            <label>New Tweet</label>
             <textarea className="form-control form-control-lg"
                       value={this.state.tweet}
                       onChange={event => this.setState({tweet: event.target.value })}

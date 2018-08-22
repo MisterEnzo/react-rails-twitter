@@ -25,6 +25,10 @@ gem "font-awesome-rails"
 # Add jQuery
 gem 'jquery-rails'
 
+# Add Devise
+gem 'devise'
+
+
 
 
 # Use CoffeeScript for .coffee assets and views

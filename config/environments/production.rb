@@ -65,6 +65,10 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "twitter-clone_#{Rails.env}"
 
+  # Config action mailer default default_url_options
+
+  config.action_mailer.default_url_options = { host: 'blablba@herokuapp.com' }
+
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.

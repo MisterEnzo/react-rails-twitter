@@ -8,6 +8,7 @@ export default class TweetList extends React.Component {
 
     return (
       <div>
+        <h2>Tweets</h2>
         <ul>
           {tweets}
         </ul>
