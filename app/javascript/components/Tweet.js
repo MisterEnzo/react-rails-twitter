@@ -5,7 +5,7 @@ export default class Tweet extends React.Component {
     return (
       <li>
         <i className="fa fa-user-circle"></i>
-        <span>{this.props.author}</span>
+        <span>{this.props.user}</span>
         <p>{this.props.body}</p>
       </li>
     )

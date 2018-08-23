@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Creating new users.."
+
+3.times do |user|
+  User.create!(email: "#{user}@example.com", first_name: "User #{user}", password: 123456)
+end
+
+puts "Finished creating users."
+
+puts "Creating new tweets.."
+5.times do |tweet|
+  Tweet.create!(user_id: 1, body: "#{'Hello! ' * tweet}")
+  Tweet.create!(user_id: 2, body: "#{'Hello! ' * tweet}")
+  Tweet.create!(user_id: 3, body: "#{'Hello! ' * tweet}")
+end
+puts "Finished creating sample tweets."
