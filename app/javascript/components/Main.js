@@ -9,9 +9,21 @@ export default class Main extends Component {
   state = {tweets: mockTweets}
 
   sendTweet = (tweet) => {
-    this.setState(prevState => ({
-      tweets: [ {id: 0, author: "guest", body: tweet}, ...prevState.tweets]
+    $.post('/tweets', { tweet: tweet })
+    .done(savedTweet => {
+      this.setState(prevState => ({
+        tweets: [ savedTweet, ...prevState.tweets ]
+      }));
+    })
+    .fail(error => console.log(error))
+  }
+
+  componentDidMount(){
+    $.ajax("/tweets")
+    .done(data => this.setState({
+      tweets: data
     }))
+    .fail(error => console.log(error))
   }
 
   render () {

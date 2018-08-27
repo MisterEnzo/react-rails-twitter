@@ -15,9 +15,9 @@ end
 puts "Finished creating users."
 
 puts "Creating new tweets.."
-5.times do |tweet|
-  Tweet.create!(user_id: 1, body: "#{'Hello! ' * tweet}")
-  Tweet.create!(user_id: 2, body: "#{'Hello! ' * tweet}")
-  Tweet.create!(user_id: 3, body: "#{'Hello! ' * tweet}")
+3.times do |tweet|
+  Tweet.create!(user_id: 1, body: "#{'Hello! ' * (tweet + 1)}")
+  Tweet.create!(user_id: 2, body: "#{'Hello! ' * (tweet + 1)}")
+  Tweet.create!(user_id: 3, body: "#{'Hello! ' * (tweet + 1)}")
 end
 puts "Finished creating sample tweets."

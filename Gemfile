@@ -28,6 +28,9 @@ gem 'jquery-rails'
 # Add Devise
 gem 'devise'
 
+# Add MomenyJS
+gem 'momentjs-rails'
+
 
 
 
