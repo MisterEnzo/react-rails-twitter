@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import HelloWorld from "./HelloWorld"
 import TweetBox from "./TweetBox"
-import TweetList from "./TweetList"
+import TweetList from "../containers/TweetList"
 
 let mockTweets = [];
 
