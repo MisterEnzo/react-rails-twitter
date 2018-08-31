@@ -17,5 +17,3 @@ document.addEventListener('DOMContentLoaded', () => {
     , document.querySelector("#twitter")
   )
 });
-
-console.log("balblala");

@@ -14,6 +14,11 @@ export default class Main extends Component {
     }))
   }
 
+  componentDidMount(){
+    $.ajax('/tweets')
+      .done( data => this.setState({tweets:data}))
+  }
+
   render () {
     return (
       <div className="container">
