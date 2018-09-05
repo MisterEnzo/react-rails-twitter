@@ -1,12 +1,14 @@
-import React, { Component } from "react"
-import HelloWorld from "./HelloWorld"
-import TweetBox from "./TweetBox"
-import TweetList from "../containers/TweetList"
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-let mockTweets = [];
+import HelloWorld from "./HelloWorld";
+import TweetBox from "./TweetBox";
+import TweetList from "../containers/TweetList";
 
-export default class Main extends Component {
-  state = {tweets: mockTweets}
+import { fetchTweets } from "../actions/index";
+
+class Main extends Component {
 
   sendTweet = (tweet) => {
     this.setState(prevState => ({
@@ -15,16 +17,22 @@ export default class Main extends Component {
   }
 
   componentDidMount(){
-    $.ajax('/tweets')
-      .done( data => this.setState({tweets:data}))
+    this.props.fetchTweets();
   }
 
   render () {
     return (
       <div className="container">
         <TweetBox sendTweet={this.sendTweet} />
-        <TweetList tweets={this.state.tweets} />
+        <TweetList />
+        <div id="tweet_data"><p>tweets</p></div>
       </div>
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchTweets }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(Main);

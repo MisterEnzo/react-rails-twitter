@@ -4,14 +4,20 @@ import { connect } from 'react-redux';
 import Tweet from "../components/Tweet";
 
 class TweetList extends React.Component {
+
   render() {
-    let tweets = this.props.tweets.map(tweet => <Tweet key={tweet.id} {...tweet} />);
+    const tweets = this.props.tweets
+    // let tweets = this.props.tweets.map(tweet => <Tweet key={tweet.id} {...tweet} />);
+    if (!tweets){
+      return <div>Loading..</div>
+    }
+    const renderTweets = tweets.map(tweet => <Tweet key={tweet.id} {...tweet} />);
 
     return (
       <div>
         <h2>Tweets</h2>
         <ul>
-          {tweets}
+          {renderTweets}
         </ul>
       </div>
     );
