@@ -7,7 +7,6 @@ class TweetList extends React.Component {
 
   render() {
     const tweets = this.props.tweets
-    // let tweets = this.props.tweets.map(tweet => <Tweet key={tweet.id} {...tweet} />);
     if (!tweets){
       return <div>Loading..</div>
     }

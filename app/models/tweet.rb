@@ -2,12 +2,9 @@ class Tweet < ApplicationRecord
   belongs_to :user
 
   def as_json(options = {})
-    super(methods: [:name, :blabla])
+    super(methods: [:name])
   end
 
-  def blabla
-    "blabla"
-  end
 
   def name
     user.display_name

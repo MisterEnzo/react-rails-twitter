@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import axios from "axios";
 
 import HelloWorld from "./HelloWorld";
 import TweetBox from "./TweetBox";
@@ -11,9 +12,19 @@ import { fetchTweets } from "../actions/index";
 class Main extends Component {
 
   sendTweet = (tweet) => {
-    this.setState(prevState => ({
-      tweets: [ {id: 0, author: "guest", body: tweet}, ...prevState.tweets]
-    }))
+    axios.post('/tweets', {
+      tweet: tweet
+    })
+    .then(function (response){
+      console.log(response);
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+
+    // this.setState(prevState => ({
+    //   tweets: [ {id: 0, author: "guest", body: tweet}, ...prevState.tweets]
+    // }))
   }
 
   componentDidMount(){
