@@ -8,6 +8,7 @@ import TweetBox from "./TweetBox";
 import TweetList from "../containers/TweetList";
 
 import { fetchTweets } from "../actions/index";
+import { sendTweet } from "../actions/index";
 
 class Main extends Component {
 

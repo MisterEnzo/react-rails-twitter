@@ -12,3 +12,7 @@ export function fetchTweets() {
     payload: request
   };
 }
+
+// create a function sendTweet
+// it should send a post request
+// then it should return the data
