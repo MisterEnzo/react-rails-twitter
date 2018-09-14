@@ -1,10 +1,11 @@
 import axios from 'axios';
 
+// action for fetching tweets from api
 export const FETCH_TWEETS = 'FETCH_TWEETS';
 
 export function fetchTweets() {
   const url = '/tweets';
-  const request = axios.get('/tweets').then(function(response){
+  const request = axios.get(url).then(function(response){
     return response;
   })
   return {
@@ -13,6 +14,22 @@ export function fetchTweets() {
   };
 }
 
-// create a function sendTweet
-// it should send a post request
-// then it should return the data
+// action for posting a new tweet to api
+export const POST_TWEET = 'POST_TWEET';
+
+export function sendTweet(tweet){
+  const url = '/tweets';
+  const request = axios.post(url, {
+    tweet: tweet
+  })
+  .then(function(response){
+    return response;
+  })
+  .catch(function(error){
+    console.log(error);
+  })
+  return {
+    type: POST_TWEET,
+    payload: request
+  }
+}

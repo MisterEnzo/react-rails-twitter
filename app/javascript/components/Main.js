@@ -11,23 +11,6 @@ import { fetchTweets } from "../actions/index";
 import { sendTweet } from "../actions/index";
 
 class Main extends Component {
-
-  sendTweet = (tweet) => {
-    axios.post('/tweets', {
-      tweet: tweet
-    })
-    .then(function (response){
-      console.log(response);
-    })
-    .catch(function(error){
-      console.log(error);
-    })
-
-    // this.setState(prevState => ({
-    //   tweets: [ {id: 0, author: "guest", body: tweet}, ...prevState.tweets]
-    // }))
-  }
-
   componentDidMount(){
     this.props.fetchTweets();
   }
@@ -35,7 +18,7 @@ class Main extends Component {
   render () {
     return (
       <div className="container">
-        <TweetBox sendTweet={this.sendTweet} />
+        <TweetBox sendTweet={this.props.sendTweet} />
         <TweetList />
         <div id="tweet_data"><p>tweets</p></div>
       </div>
@@ -44,7 +27,7 @@ class Main extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchTweets }, dispatch);
+  return bindActionCreators({ fetchTweets, sendTweet }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(Main);
