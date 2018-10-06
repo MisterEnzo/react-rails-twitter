@@ -8,6 +8,8 @@
 
 puts "Creating new users.."
 
+User.create!(email: "enz@enz.com", first_name: "enz", password: 123456)
+
 3.times do |user|
   User.create!(email: "#{user}@example.com", first_name: "User #{user}", password: 123456)
 end
